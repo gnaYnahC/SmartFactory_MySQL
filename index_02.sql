@@ -148,3 +148,13 @@ SELECT * FROM customer WHERE birth >= '2000-01-01' LIMIT 2;
 -- 2000년 이후 출생자 고객 중에서 뒤에 2건만 조회하고 싶은 경우
 SELECT * FROM customer WHERE birth >= '2000-01-01' ORDER BY custid DESC LIMIT 2;
 
+-- 추가)
+-- 짝수 해에 태어난 고객
+SELECT * FROM customer WHERE YEAR(birth)%2=0;
+
+-- 홀수 일에 태어난 고객
+SELECT * FROM customer WHERE MOD(DAY(birth),2)=1;
+
+-- 2000-02-22 다음날에 태어난 고객 조회
+SELECT * FROM customer WHERE birth = DATE('2000-02-22') + 1;
+
